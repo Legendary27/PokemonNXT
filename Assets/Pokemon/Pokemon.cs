@@ -6,29 +6,34 @@ public class Pokemon{
 	public static List<Pokemon> party = new List<Pokemon>();
 	public static Pokemon selected = null;
 
-	public int number = 0;
-	public string name = "";
-	public int level = 5;
-	public float xp = 0;
-	public float hp = 1;
-	public float pp = 1;
-	public Texture2D icon = null;
-	public List<Move> moves = new List<Move>();
-	public bool isPlayer = false;
-
-	public int health = 10;
-	public int attack = 10;
-	public int defence = 10;
-	public int speed = 10;
-	public Item heldItem = null;
+	private int number, health, attack, defense, sp_attack, sp_defense, speed, level;
+	private string name = "";
+	private float xp, hp, pp;
+	private Texture2D icon = null;
+	private List<Move> moves = new List<Move>();
+	private bool isPlayer;
+	private Item heldItem = null;
 
 	public Pokemon(int number, bool isPlayer){
-		this.number = number;
-		this.isPlayer = isPlayer;
+		number = number;
+		health = getHealth(number);
+		attack = getAttack(number);
+		defense = getDefense(number);
+		sp_attack = getSp_Attack(number);
+		sp_defense = getSp_Defense(number);
+		speed = getSpeed(number);
+		level = getLevel(number);
+		name = getName(number);
+		xp = getXP(number);
+		hp = getHp(number);
+		pp = getPP(number);
+		icon = getIcon(number);
+		isPlayer = isPlayer;
+		PopulateMoves();
+		
 		name = GetName(number);
 		icon = GetIcon(number);
 		level = 5;
-
 		hp = 1;
 		pp = 1;
 		xp = Random.value;
@@ -37,11 +42,11 @@ public class Pokemon{
 
 	public Pokemon(int number, bool isPlayer, int level){
 		Debug.Log("New "+GetName(number));
-		this.number = number;
-		this.isPlayer = isPlayer;
+		number = number;
+		isPlayer = isPlayer;
 		name = GetName(number);
 		icon = GetIcon(number);
-		this.level = level;
+		level = level;
 		
 		hp = 1;
 		pp = 1;
@@ -55,6 +60,26 @@ public class Pokemon{
 		hp -= damage/(float)TotalHP();	//replace with some elabourate forumla
 		GiveXP(10);
 	}
+	
+	public string getName(int num){
+		
+	}
+	
+	public int getHealth(int num){
+		
+	}
+	
+	public int getHealth(int num){
+		
+	}
+	
+	public int getHealth(int num){
+		
+	}
+	public int getHealth(int num){
+		
+	}
+	
 	public int TotalHP(){
 		return (Pokemon_BaseStats.Health((Pokemon_Names)number)+50)*level/50 + 10;
 	}
@@ -143,6 +168,8 @@ public class Pokemon{
 	public static Texture2D GetIcon(int number){
 		return (Texture2D)Resources.Load("Icons/"+GetName(number));
 	}
+	
+	
 }
 
 enum ElementNames{
